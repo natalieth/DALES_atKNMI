@@ -1,0 +1,578 @@
++ set -o pipefail
++ ECF_PORT=16889
++ export ECF_PORT
++ ECF_HOST=login4.bullx
++ export ECF_HOST
++ ECF_NAME=/DALES/run/run_DALES
++ export ECF_NAME
++ ECF_PASS=BqxPJQBA
++ export ECF_PASS
++ ECF_TRYNO=1
++ export ECF_TRYNO
++ ECF_RID=8038
++ export ECF_RID
++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
++ export PATH
++ ecflow_client '--init=8038'
++ trap ERROR 0
++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
++ ulimit -s unlimited
++ cd /nfs/home/users/theeuwes/work/DALES_runs/20210709
++ ln -sfn /nfs/home/users/theeuwes/dales/build/src/dales4 .
++ ln -sfn /nfs/home/users/theeuwes/dales/data/van_genuchten_parameters.nc .
++ LD_PRELOAD=/nfs/home/users/theeuwes/fixes/getcwd-autoretry-preload.so
++ export LD_PRELOAD
++ srun -N1 -n28 dales4 namoptions.001
++ 1> dales.out
+Stopped
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+dales4             00000000008F41B6  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B6103881370  Unknown               Unknown  Unknown
+libhdf5.so.10.3.1  00002B610464CF01  H5F_close             Unknown  Unknown
+libhdf5.so.10.3.1  00002B61046C740A  Unknown               Unknown  Unknown
+libhdf5.so.10.3.1  00002B6104766E27  H5SL_try_free_saf     Unknown  Unknown
+libhdf5.so.10.3.1  00002B61046C7274  H5I_clear_type        Unknown  Unknown
+libhdf5.so.10.3.1  00002B6104645458  H5F_term_interfac     Unknown  Unknown
+libhdf5.so.10.3.1  00002B61045CDC4B  H5_term_library       Unknown  Unknown
+libc-2.17.so       00002B6103DC8A49  Unknown               Unknown  Unknown
+libc-2.17.so       00002B6103DC8A95  Unknown               Unknown  Unknown
+dales4             0000000000931AED  for_stop_core         Unknown  Unknown
+dales4             0000000000789C32  Unknown               Unknown  Unknown
+dales4             000000000055742C  Unknown               Unknown  Unknown
+dales4             0000000000830E8C  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B6103DB1B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+srun: error: knmi353: task 5: Exited with exit code 174
+srun: Force Terminated job 2145229
+slurmstepd: *** STEP 2145229.0 ON knmi353 CANCELLED AT 2021-07-19T09:03:24 DUE TO PREEMPTION ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B3220489370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B321F4AA6A9  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B321F64DCF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B321F4563D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B321F45A016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B321F00BFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B32209B9B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AFEF8F69370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AFEF7F8A6A6  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AFEF812DCF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AFEF7F363D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002AFEF7F3A016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AFEF7AEBFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AFEF9499B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AC1A45BF370  Unknown               Unknown  Unknown
+libc-2.17.so       00002AC1A4BAA2E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002AC1A35E0C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AC1A3783CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AC1A358C3D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002AC1A3590016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AC1A3141FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AC1A4AEFB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B723EB6E370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B723DB8F6A6  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B723DD32CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B723DB3B3D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B723DB3F016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B723D6F0FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B723F09EB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AAAADA03370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AAAACA24848  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AAAACBC6B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AAAAC9CF67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002AAAAC9D4016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AAAAC585FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AAAADF33B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B1C213F9370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B1C2041A69D  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B1C205BDCF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B1C203C63D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B1C203CA016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B1C1FF7BFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B1C21929B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B93B751C370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B93B653D96F  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B93B66DFB63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B93B64E867A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B93B64ED016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B93B609EFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B93B7A4CB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AD8E267B370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AD8E169C69F  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AD8E183EB63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AD8E164767A  Unknown               Unknown  Unknown
+libmpi.so.12       00002AD8E164C016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AD8E11FDFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD8E2BABB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B54B75E1370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B54B6602848  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B54B67A4B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B54B65AD67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B54B65B2016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B54B6163FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B54B7B11B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AE226EE5370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AE225F0685D  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AE2260A8B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AE225EB167A  Unknown               Unknown  Unknown
+libmpi.so.12       00002AE225EB6016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AE225A67FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AE227415B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B3332718370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B333173969F  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B33318DCCF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B33316E53D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B33316E9016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B333129AFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B3332C48B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B52FADCA370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B52FB3B52E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B52F9DEBC70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B52F9F8ECF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B52F9D973D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B52F9D9B016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B52F994CFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B52FB2FAB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B9E051A6370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B9E057912E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B9E041C7C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B9E04369B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B9E0417267A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B9E04177016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B9E03D28FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B9E056D6B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B91FF441370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B91FE4626A6  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B91FE604B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B91FE40D67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B91FE412016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B91FDFC3FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B91FF971B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B2D5AA98370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B2D59ABA716  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B2D59C5BB63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B2D59A6467A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B2D59A69016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B2D5961AFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B2D5AFC8B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B8FDA521370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B8FDAB0C2E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B8FD9542C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B8FD96E4B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B8FD94ED67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B8FD94F2016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B8FD90A3FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B8FDAA51B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AD378A95370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AD377AB66A9  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AD377C58B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AD377A6167A  Unknown               Unknown  Unknown
+libmpi.so.12       00002AD377A66016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AD377617FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD378FC5B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+srun: error: knmi353: tasks 0-4,6-27: Exited with exit code 1
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B7993ECB370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B79944B62E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B7992EECC70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B799308EB63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B7992E9767A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B7992E9C016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B7992A4DFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B79943FBB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B654F64F370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B654E670CF9  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B654E812B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B654E61B67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B654E620016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B654E1D1FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B654FB7FB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002ABF98A3E370  Unknown               Unknown  Unknown
+libmpi.so.12       00002ABF97A5F96F  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002ABF97C01B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002ABF97A0A67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002ABF97A0F016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002ABF975C0FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002ABF98F6EB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B7783C2E370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B7782C4F85B  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B7782DF1B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B7782BFA67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B7782BFF016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B77827B0FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B778415EB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AD37E4C3370  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD37EAAE2E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002AD37D4E4C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AD37D687CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AD37D4903D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002AD37D494016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AD37D045FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD37E9F3B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B91C7C96370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B91C6CB76A9  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B91C6E5ACF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B91C6C633D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B91C6C67016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B91C6818FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B91C81C6B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B3831B4F370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B383213A2E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B3830B70C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B3830D12B63  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B3830B1B67A  Unknown               Unknown  Unknown
+libmpi.so.12       00002B3830B20016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B38306D1FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B383207FB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AB872795370  Unknown               Unknown  Unknown
+libmpi.so.12       00002AB8717B66A9  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002AB871959CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002AB8717623D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002AB871766016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002AB871317FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AB872CC5B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B98E2FFC370  Unknown               Unknown  Unknown
+libmpi.so.12       00002B98E201D6A6  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B98E21C0CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B98E1FC93D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B98E1FCD016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B98E1B7EFF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B98E352CB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B0E6A1F0370  Unknown               Unknown  Unknown
+libc-2.17.so       00002B0E6A7DB2E7  __sched_yield         Unknown  Unknown
+libmpi.so.12       00002B0E69211C70  PMPIDI_CH3I_Progr     Unknown  Unknown
+libmpi.so.12.0     00002B0E693B4CF0  Unknown               Unknown  Unknown
+libmpi.so.12.0     00002B0E691BD3D0  Unknown               Unknown  Unknown
+libmpi.so.12       00002B0E691C1016  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00002B0E68D72FF1  mpi_allreduce_        Unknown  Unknown
+dales4             000000000050C59E  Unknown               Unknown  Unknown
+dales4             0000000000830E9B  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B0E6A720B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
++ ERROR
++ set +e
++ wait
++ ecflow_client '--abort=trap'
++ trap 0
++ exit 0

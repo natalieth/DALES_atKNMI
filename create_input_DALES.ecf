@@ -1,0 +1,5 @@
+
+%include "head.h"
+cd /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/data
+/nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/create_input_OForcing.py %DATE%
+%include "tail.h"

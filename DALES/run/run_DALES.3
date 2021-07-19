@@ -1,0 +1,430 @@
++ set -o pipefail
++ ECF_PORT=16889
++ export ECF_PORT
++ ECF_HOST=login4.bullx
++ export ECF_HOST
++ ECF_NAME=/DALES/run/run_DALES
++ export ECF_NAME
++ ECF_PASS=mfU7peCi
++ export ECF_PASS
++ ECF_TRYNO=3
++ export ECF_TRYNO
++ ECF_RID=32451
++ export ECF_RID
++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
++ export PATH
++ ecflow_client '--init=32451'
++ trap ERROR 0
++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
++ ulimit -s unlimited
++ cd /nfs/home/users/theeuwes/work/DALES_runs/20210622
++ ln -sfn /nfs/home/users/theeuwes/dales/build/src/dales4 .
++ ln -sfn /nfs/home/users/theeuwes/dales/data/van_genuchten_parameters.nc .
++ LD_PRELOAD=/nfs/home/users/theeuwes/fixes/getcwd-autoretry-preload.so
++ export LD_PRELOAD
++ srun -N1 -n28 dales4 namoptions.001
++ 1> dales.out
+srun: job 2132966 queued and waiting for resources
+srun: job 2132966 has been allocated resources
+srun: Force Terminated job 2132966
+slurmstepd: *** STEP 2132966.0 ON knmi374 CANCELLED AT 2021-06-25T12:40:59 DUE TO PREEMPTION ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B025C2BB370  Unknown               Unknown  Unknown
+dales4             00000000007EAB3C  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B025C7EBB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B5261B78370  Unknown               Unknown  Unknown
+dales4             00000000007EABB1  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B52620A8B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AEDDACD9370  Unknown               Unknown  Unknown
+dales4             00000000007EA94A  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AEDDB209B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B36C3BE5370  Unknown               Unknown  Unknown
+dales4             00000000007EA24D  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B36C4115B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AACAB61A370  Unknown               Unknown  Unknown
+dales4             00000000007EA2EB  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AACABB4AB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B504EBA0370  Unknown               Unknown  Unknown
+dales4             00000000007EA317  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B504F0D0B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B6A116D3370  Unknown               Unknown  Unknown
+dales4             00000000007EAAF0  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B6A11C03B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AD12474F370  Unknown               Unknown  Unknown
+dales4             00000000007EA2F5  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD124C7FB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B68B7368370  Unknown               Unknown  Unknown
+dales4             00000000007EA970  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B68B7898B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B29B906B370  Unknown               Unknown  Unknown
+dales4             00000000007EA25E  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B29B959BB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B137D444370  Unknown               Unknown  Unknown
+dales4             00000000007EAB3C  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B137D974B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B938E51C370  Unknown               Unknown  Unknown
+dales4             00000000007EA2A8  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B938EA4CB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B758DBEA370  Unknown               Unknown  Unknown
+dales4             00000000007EA321  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B758E11AB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B0A3B4C3370  Unknown               Unknown  Unknown
+dales4             00000000007EA2DD  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B0A3B9F3B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AC15525C370  Unknown               Unknown  Unknown
+dales4             00000000007EA327  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AC15578CB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AB737856370  Unknown               Unknown  Unknown
+dales4             00000000007EA234  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AB737D86B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AE2F707E370  Unknown               Unknown  Unknown
+dales4             00000000007EAB1E  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AE2F75AEB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B43379F4370  Unknown               Unknown  Unknown
+dales4             00000000007EA330  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B4337F24B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B8F2EC98370  Unknown               Unknown  Unknown
+dales4             00000000007EA11A  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B8F2F1C8B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002BA6F3043370  Unknown               Unknown  Unknown
+dales4             00000000007EA330  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002BA6F3573B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AB219101370  Unknown               Unknown  Unknown
+dales4             00000000007EAB3C  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AB219631B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AD8A32D8370  Unknown               Unknown  Unknown
+dales4             00000000007EA234  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AD8A3808B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B1E77591370  Unknown               Unknown  Unknown
+dales4             00000000007EA2A8  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B1E77AC1B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AE4E9440370  Unknown               Unknown  Unknown
+dales4             00000000007EAB2A  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AE4E9970B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B7ABA033370  Unknown               Unknown  Unknown
+dales4             00000000007EA2F5  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B7ABA563B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B4ABC80A370  Unknown               Unknown  Unknown
+dales4             00000000007EAAD0  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B4ABCD3AB35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002AE7DEB63370  Unknown               Unknown  Unknown
+dales4             00000000007EA2F5  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002AE7DF093B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+dales4             00000000009C28A1  tbk_trace_stack_i     Unknown  Unknown
+dales4             00000000009C09DB  tbk_string_stack_     Unknown  Unknown
+dales4             000000000095E284  Unknown               Unknown  Unknown
+dales4             000000000095E096  tbk_stack_trace       Unknown  Unknown
+dales4             00000000008ECCD9  for__issue_diagno     Unknown  Unknown
+dales4             00000000008F40FC  for__signal_handl     Unknown  Unknown
+libpthread-2.17.s  00002B73E9AF7370  Unknown               Unknown  Unknown
+dales4             00000000007EAB18  Unknown               Unknown  Unknown
+dales4             0000000000830E5A  Unknown               Unknown  Unknown
+dales4             000000000040B61E  Unknown               Unknown  Unknown
+libc-2.17.so       00002B73EA027B35  __libc_start_main     Unknown  Unknown
+dales4             000000000040B529  Unknown               Unknown  Unknown
+srun: error: knmi374: tasks 0-27: Exited with exit code 1
++ ERROR
++ set +e
++ wait
++ ecflow_client '--abort=trap'
++ trap 0
++ exit 0

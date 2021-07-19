@@ -1,0 +1,37 @@
+++ set -o pipefail
+++ export ECF_PORT=16889
+++ ECF_PORT=16889
+++ export ECF_HOST=login4.bullx
+++ ECF_HOST=login4.bullx
+++ export ECF_NAME=/DALES/prepare/create_input_DALES
+++ ECF_NAME=/DALES/prepare/create_input_DALES
+++ export ECF_PASS=QGGc.t96
+++ ECF_PASS=QGGc.t96
+++ export ECF_TRYNO=2
+++ ECF_TRYNO=2
+++ export ECF_RID=25836
+++ ECF_RID=25836
+++ export PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
+++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
+++ ecflow_client --init=25836
+++ trap ERROR 0
+++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
+++ cd /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/data
+++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/create_input_OForcing.py 20210629
+2021-06-29 00:00:00
+-----------------------
+Starting new experiment
+-----------------------
+ERROR: Can not find input file /nfs/home/users/theeuwes/work/LES_forcings/HA43_CABAUW//HA43_CABAUW_202106290000_*.nc
+Traceback (most recent call last):
+  File "/nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/create_input_OForcing.py", line 90, in <module>
+    nc_data  = xr.open_mfdataset(nc_files, combine='by_coords')
+  File "/nfs/home/users/theeuwes/.local/lib/python3.6/site-packages/xarray/backends/api.py", line 921, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+++ ERROR
+++ set +e
+++ wait
+++ ecflow_client --abort=trap
+++ trap 0
+++ exit 0

@@ -1,0 +1,6 @@
+
+%include "head.h"
+
+/nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/store_DALES_output.py %DATE% %EXP%
+
+%include "tail.h"

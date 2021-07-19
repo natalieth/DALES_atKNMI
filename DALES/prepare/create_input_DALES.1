@@ -1,0 +1,145 @@
+++ set -o pipefail
+++ export ECF_PORT=16889
+++ ECF_PORT=16889
+++ export ECF_HOST=login4.bullx
+++ ECF_HOST=login4.bullx
+++ export ECF_NAME=/DALES/prepare/create_input_DALES
+++ ECF_NAME=/DALES/prepare/create_input_DALES
+++ export ECF_PASS=wrM/dycQ
+++ ECF_PASS=wrM/dycQ
+++ export ECF_TRYNO=1
+++ ECF_TRYNO=1
+++ export ECF_RID=7932
+++ ECF_RID=7932
+++ export PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
+++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
+++ ecflow_client --init=7932
+++ trap ERROR 0
+++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
+++ cd /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/data
+++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/create_input_OForcing.py 20210709
+2021-07-09 00:00:00
+-----------------------
+Starting new experiment
+-----------------------
+ERROR: Can not find input file /nfs/home/users/theeuwes/work/LES_forcings/HA43_CABAUW//HA43_CABAUW_202107090000_*.nc
+<xarray.Dataset>
+Dimensions:            (bnds: 2, lev: 65, time: 49, x: 7, y: 7)
+Coordinates:
+  * time               (time) datetime64[ns] 2021-07-09 ... 2021-07-11
+  * y                  (y) float32 0.0 2.5e+03 5e+03 ... 1e+04 1.25e+04 1.5e+04
+  * x                  (x) float32 0.0 2.5e+03 5e+03 ... 1e+04 1.25e+04 1.5e+04
+    lon                (y, x) float32 dask.array<chunksize=(7, 7), meta=np.ndarray>
+    lat                (y, x) float32 dask.array<chunksize=(7, 7), meta=np.ndarray>
+Dimensions without coordinates: bnds, lev
+Data variables:
+    Lambert_Conformal  |S1 b''
+    date               (time) int32 dask.array<chunksize=(49,), meta=np.ndarray>
+    hms                (time) int32 dask.array<chunksize=(49,), meta=np.ndarray>
+    time_bnds          (time, bnds) datetime64[ns] dask.array<chunksize=(49, 2), meta=np.ndarray>
+    dtu_dyn            (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    dtv_dyn            (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    dtT_dyn            (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    dtq_dyn            (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    dtqc_dyn           (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    ps                 (time, y, x) float32 dask.array<chunksize=(49, 7, 7), meta=np.ndarray>
+    ta                 (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    ua                 (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    va                 (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    hus                (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+    phi                (time, lev, y, x) float32 dask.array<chunksize=(49, 65, 7, 7), meta=np.ndarray>
+Attributes:
+    Conventions:       CF-1.4
+    institute_id:      KNMI (99-0-204)
+    model_id:          harmonie-43h2.1.1
+    experiment_id:     43h211
+    domain:            NETHERLANDS.Cabauw
+    frequency:         1hr
+    driving_model_id:  ifs
+    creation_date:     Fri Jul  9 03:06:22 2021
+    title:             Geopotential
+    comment:           Created with gl/xtool
+[287.6122  286.0695  285.79657 285.1239  284.45563 284.77365 287.53275
+ 289.5342  290.98257 291.9064  292.53098 293.0845  293.31326 293.39957
+ 293.747   294.00015 293.96603 293.5982  292.3431  291.17996 290.21445
+ 289.29013 288.01733 287.20218 286.75345 286.2964  286.04678 286.149
+ 285.77924 286.01248 287.6276  289.4856  290.40985 291.16583 291.88583
+ 291.8351  291.1755  290.5911  290.6484  291.6725  291.1891  290.75708
+ 289.98914 289.29077 288.97693 288.3813  287.8292  287.96707 288.2556 ] [0.00914365 0.00868437 0.00848734 0.0082203  0.00794464 0.00807897
+ 0.00939961 0.010134   0.01021428 0.00980008 0.00928027 0.00908404
+ 0.00919003 0.00937599 0.0091221  0.00892715 0.00910963 0.00956901
+ 0.0101927  0.01029591 0.01005798 0.00986315 0.00960771 0.00931729
+ 0.00908263 0.00885849 0.00869908 0.00875214 0.00862465 0.00872792
+ 0.00950851 0.00995221 0.00983955 0.00926899 0.00872577 0.00842988
+ 0.00859946 0.00859274 0.00908072 0.0087172  0.00936809 0.01008448
+ 0.01042284 0.0104846  0.01024514 0.0101     0.00986949 0.00989753
+ 0.00990824]
+<xarray.Dataset>
+Dimensions:   (level: 65, time: 25)
+Coordinates:
+  * time      (time) datetime64[ns] 2021-07-09 ... 2021-07-10
+Dimensions without coordinates: level
+Data variables:
+    date      (time) float64 dask.array<chunksize=(25,), meta=np.ndarray>
+    hms       (time) float64 dask.array<chunksize=(25,), meta=np.ndarray>
+    dtu_dyn   (time, level) float64 0.0 0.0 0.0 ... -0.0001469 0.0008351
+    dtv_dyn   (time, level) float64 0.0 0.0 0.0 ... -4.457e-05 -0.0003569
+    dtT_dyn   (time, level) float64 0.0 0.0 0.0 ... -2.595e-05 -2.117e-05
+    dtq_dyn   (time, level) float64 0.0 0.0 0.0 ... -2.739e-11 -8.145e-12
+    dtqc_dyn  (time, level) float64 0.0 0.0 0.0 ... -1.523e-22 6.442e-23
+    p_s       (time) float32 dask.array<chunksize=(25,), meta=np.ndarray>
+    T         (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    u         (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    v         (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    q         (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    phi       (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    p         (time, level) float64 1.021e+05 1.018e+05 ... 3e+03 1e+03
+    ql        (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+    T_s       (time) float32 dask.array<chunksize=(25,), meta=np.ndarray>
+    q_s       (time) float32 dask.array<chunksize=(25,), meta=np.ndarray>
+    z         (time, level) float32 dask.array<chunksize=(25, 65), meta=np.ndarray>
+Using 2021-07-09T00:00:00.000000000 (index 0) to 2021-07-10T00:00:00.000000000 (index 24)
+<xarray.DataArray 'z' (time: 25, level: 65)>
+dask.array<getitem, shape=(25, 65), dtype=float32, chunksize=(25, 65), chunktype=numpy.ndarray>
+Coordinates:
+  * time     (time) datetime64[ns] 2021-07-09 2021-07-09T01:00:00 ... 2021-07-10
+Dimensions without coordinates: level
+creating profiles!!
+Saving prof.inp.001
+Saving scalar.inp.001
+Saving ls_flux.inp.001
+0.0 0.0 0.0 287.6122 0.009143651 102223.336
+3600.0 0.0 0.0 286.0695 0.008684374 102134.54
+7200.0 0.0 0.0 285.79657 0.008487341 102154.79
+10800.0 0.0 0.0 285.1239 0.008220295 102196.79
+14400.0 0.0 0.0 284.45563 0.007944639 102169.26
+18000.0 0.0 0.0 284.77365 0.008078965 102153.945
+21600.0 0.0 0.0 287.53275 0.009399614 102141.73
+25200.0 0.0 0.0 289.5342 0.010134 102170.625
+28800.0 0.0 0.0 290.98257 0.010214284 102188.164
+32400.0 0.0 0.0 291.9064 0.009800083 102157.48
+36000.0 0.0 0.0 292.53098 0.009280275 102150.44
+39600.0 0.0 0.0 293.0845 0.009084041 102152.73
+43200.0 0.0 0.0 293.31326 0.009190027 102135.24
+46800.0 0.0 0.0 293.39957 0.009375987 102122.164
+50400.0 0.0 0.0 293.747 0.009122099 102074.53
+54000.0 0.0 0.0 294.00015 0.008927152 102030.305
+57600.0 0.0 0.0 293.96603 0.009109631 101991.2
+61200.0 0.0 0.0 293.5982 0.009569013 101972.97
+64800.0 0.0 0.0 292.3431 0.010192703 101965.445
+68400.0 0.0 0.0 291.17996 0.010295905 101978.04
+72000.0 0.0 0.0 290.21445 0.010057982 102012.87
+75600.0 0.0 0.0 289.29013 0.0098631475 101999.17
+79200.0 0.0 0.0 288.01733 0.009607712 102002.6
+82800.0 0.0 0.0 287.20218 0.009317286 101972.21
+86400.0 0.0 0.0 286.75345 0.009082628 101953.945
+Saving ls_fluxsv.inp.001
+Saving lscale.inp.001
+Saving nudge.inp.001
+Saving backrad.inp.001.nc
+Creating runscript
+Copying/moving input files
+++ wait
+++ ecflow_client --complete
+++ trap 0
+++ exit 0

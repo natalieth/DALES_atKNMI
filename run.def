@@ -1,0 +1,23 @@
+# 4.7.0
+suite DALES
+  repeat date DATE 20210627 20250101 1
+  edit ECF_HOME '/nfs/home/users/theeuwes/work/DALES_runs/ecf'
+  family prepare
+    task get_soil_IFS
+    task get_HARM_forcing
+    task create_input_DALES
+      trigger get_soil_IFS == complete and get_HARM_forcing == complete
+  endfamily
+  family run
+    task run_DALES
+      trigger ../prepare == complete
+  endfamily
+  family postprocessing
+    task merge_crosssections
+      trigger ../run == complete
+      edit EXP '001'
+    task store_somewhere
+      trigger merge_crosssections == complete
+      edit EXP '1'
+  endfamily
+endsuite

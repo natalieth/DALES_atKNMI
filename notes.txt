@@ -1,0 +1,8 @@
+Notes about the DALES runs 
+ran for 4--14 June with one soil initialisation from the operation ECMWF run 4 June
+---> 14 june run was killed, therefore too late to get forcing data from bull 
+cold start 16 June soil from ECMWF operational run. (now saving forcing data using a cronjob to WS)
+
+---> june 29 (run 25 june) started a cold start with the right soil types for cabauw rescaled from ecmwf forecasts 
+
+

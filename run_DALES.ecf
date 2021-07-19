@@ -1,0 +1,22 @@
+%include "head.h"
+
+#SBATCH --job-name=DALES001_1
+#SBATCH --time="35:00:00"
+
+#SBATCH -n28
+#SBATCH -N1
+#env
+#module list
+ulimit -s unlimited
+
+cd /nfs/home/users/theeuwes/work/DALES_runs/%DATE%
+### create an if not exist change
+ln -sfn $HOME/dales/build/src/dales4 .
+ln -sfn $HOME/dales/data/van_genuchten_parameters.nc .
+
+export LD_PRELOAD=$HOME/fixes/getcwd-autoretry-preload.so
+
+srun -N1 -n28 dales4 namoptions.001 > dales.out
+
+%include "tail.h"
+
