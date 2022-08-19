@@ -1,6 +1,6 @@
 # 4.7.0
 suite DALES
-  repeat date DATE 20210627 20250101 1
+  repeat date DATE 20220511 20250101 1
   edit ECF_HOME '/nfs/home/users/theeuwes/work/DALES_runs/ecf'
   family prepare
     task get_soil_IFS
@@ -13,11 +13,8 @@ suite DALES
       trigger ../prepare == complete
   endfamily
   family postprocessing
-    task merge_crosssections
-      trigger ../run == complete
-      edit EXP '001'
     task store_somewhere
-      trigger merge_crosssections == complete
+      trigger ../run == complete
       edit EXP '1'
   endfamily
 endsuite

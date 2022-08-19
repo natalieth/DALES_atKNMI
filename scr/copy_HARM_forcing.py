@@ -11,7 +11,7 @@ if __name__ == '__main__':
     date = datetime.datetime.strptime(argv,'%Y%m%d')
 
     HH = 0
-    source_path = "/dpsp/production/harmonie/43h211/"
+    source_path = "/dpsp/production/harmonie/43h22tg3/"
     path = "/nfs/home/users/theeuwes/work/LES_forcings/HA43_CABAUW/"
 
     files = ["HA43_CABAUW_{0:04d}{1:02d}{2:02d}{3:02d}00_HIS.nc"
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             shutil.copy(source_path+files[0],path)
             shutil.copy(source_path+files[1],path)
         except IOError:
-            source_path_ws = "theeuwes@pc200248:/nobackup/users/theeuwes/testbed/HARMONIE/cabauw_forcings/"
+            source_path_ws = "theeuwes@pc200248.dynamic.knmi.nl:/nobackup/users/theeuwes/testbed/HARMONIE/cabauw_forcings/"
             os.system("rsync -vau {} {}".format(source_path_ws+files[0],path))
             os.system("rsync -vau {} {}".format(source_path_ws+files[1],path))
 

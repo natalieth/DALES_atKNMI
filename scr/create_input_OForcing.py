@@ -88,9 +88,10 @@ if __name__ == '__main__':
 
         try:
             nc_data  = xr.open_mfdataset(nc_files, combine='by_coords')
+            nc_data = nc_data.sel(time=slice(None,end+datetime.timedelta(hours=2)))
         except TypeError:
             nc_data  = xr.open_mfdataset(nc_files)
-        
+            nc_data = nc_data.sel(time=slice(None,end+datetime.timedelta(hours=2))) 
         print(nc_data)
         nc_data = HARM_to_LES(nc_data,date,3600)
 

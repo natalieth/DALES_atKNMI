@@ -28,7 +28,7 @@ ysize = 15000
 
 xlat  = 51.971
 xlon  = 4.927
-xday  = 190
+xday  = 205
 xtime  = 0
 /
 
@@ -189,8 +189,8 @@ timeav = 600.
 /
 
 &NAMCROSSSECTION
-lcross = .true.
-dtav = 60
+!lcross = .true. !NT switched off 17 august
+!dtav = 60
 !lxy=.false.
 !lxz=.false.
 !lyz=.false.
@@ -211,8 +211,8 @@ dtav = 60
 !/
 
 &NAMCAPE        ! for liquid,rain,total water path LWP, RWP, TWP
-lcape = .true.
-dtav  = 60
+!lcape = .true. ! NT switched off 17 august 2021
+!dtav  = 60
 /
 
 ! New LSM, used if &NAMSURFACE : isurf = 11
@@ -262,8 +262,8 @@ rs_min_high = 250.
 rs_min_bare = 50.
 
 ! Initial profiles of soil temperature and soil moisture (from bottom to top):
-t_soil_p  = 290.2785  290.84714 288.23413 283.55203
-theta_soil_p  = 0.52124027 0.52523103 0.50367084 0.52213797
+t_soil_p  = 291.7435  292.52612 289.8662  284.8074 
+theta_soil_p  = 0.46336104 0.43000738 0.44466525 0.5161382 
 
 ! Soil index in `van_genuchten_parameters.nc`:
 soil_index_p  = 17. 17. 17. 17.

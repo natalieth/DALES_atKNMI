@@ -35,7 +35,6 @@ def HARM_to_LES(df,date,dt):
         
         time_bnds = df.time_bnds.values[t,:]
         timediff = (time_bnds[-1]-time_bnds[0]).astype('timedelta64[s]') # convert to seconds
-
         if timediff <= timedelta(seconds=3600):
             dtq_dyn[t,:] = df.dtq_dyn[t,:]/dt
             dtT_dyn[t,:] = df.dtT_dyn[t,:]/dt

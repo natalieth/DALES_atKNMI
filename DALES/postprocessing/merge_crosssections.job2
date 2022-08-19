@@ -8,7 +8,7 @@ set -o pipefail # fail if last(rightmost) command exits with a non-zero status
 export ECF_PORT=16889    # The server port number
 export ECF_HOST=login4.bullx    # The host name where the server is running
 export ECF_NAME=/DALES/postprocessing/merge_crosssections    # The name of this current task
-export ECF_PASS=8DbQOSpq    # A unique password, used for job validation & zombie detection
+export ECF_PASS=Nrisj2Jw    # A unique password, used for job validation & zombie detection
 export ECF_TRYNO=2  # Current try number of the task
 export ECF_RID=$$             # record the process id. Also used for zombie detection
 # export NO_ECF=1             # uncomment to run as a standalone task on the command line
@@ -39,9 +39,9 @@ trap ERROR 0
 # Trap any signal that may cause the script to fail
 trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
 
-date=20210604
+date=20210817
 exp=001
-dir="/nfs/home/users/theeuwes/work/DALES_runs/20210604"
+dir="/nfs/home/users/theeuwes/work/DALES_runs/20210817/"
 cwd="/nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/"
 
 cp $cwd/mergecross.py $dir
@@ -57,13 +57,13 @@ do
         mv $dir$type.$vars.$exp.nc $dir$type.$vars.$date.$exp.nc
 done
 
-type="surfcross"
-for vars in "H" "LE" "G0" "tskin" "obuk" "ustar" "cliq"
-do
-        echo Merging $type var $vars
-        python3 $dir/mergecross.py $dir $type $vars $exp
-        mv $dir$type.$vars.$exp.nc $dir$type.$vars.$date.$exp.nc
-done
+#type="surfcross"
+#for vars in "H" "LE" "G0" "tskin" "obuk" "ustar" "cliq"
+#do
+#        echo Merging $type var $vars
+#        python3 $dir/mergecross.py $dir $type $vars $exp
+#        mv $dir$type.$vars.$exp.nc $dir$type.$vars.$date.$exp.nc
+#done
 
 type="crossxy.0002"
 for vars in "ql" "qt" "thl" "u" "v" "w" "thv" "e120"

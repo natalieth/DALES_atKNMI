@@ -11,7 +11,7 @@ ulimit -s unlimited
 
 cd /nfs/home/users/theeuwes/work/DALES_runs/%DATE%
 ### create an if not exist change
-ln -sfn $HOME/dales/build/src/dales4 .
+ln -sfn $HOME/dales/build_bugfixthl/src/dales4 .
 ln -sfn $HOME/dales/data/van_genuchten_parameters.nc .
 
 export LD_PRELOAD=$HOME/fixes/getcwd-autoretry-preload.so

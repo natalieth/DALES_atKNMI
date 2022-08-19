@@ -5,4 +5,7 @@ cold start 16 June soil from ECMWF operational run. (now saving forcing data usi
 
 ---> june 29 (run 25 june) started a cold start with the right soil types for cabauw rescaled from ecmwf forecasts 
 
+---> August 8 running with thl tendency bugfix
 
+---> December 6 2021 HARMONIE forcing changed from CY43h2.1.1 to CY43h2.2tg3
+ 

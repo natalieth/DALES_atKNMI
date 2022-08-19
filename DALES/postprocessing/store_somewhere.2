@@ -5,22 +5,30 @@
 ++ ECF_HOST=login4.bullx
 ++ export ECF_NAME=/DALES/postprocessing/store_somewhere
 ++ ECF_NAME=/DALES/postprocessing/store_somewhere
-++ export ECF_PASS=EqIqKFeJ
-++ ECF_PASS=EqIqKFeJ
-++ export ECF_TRYNO=1
-++ ECF_TRYNO=1
-++ export ECF_RID=6214
-++ ECF_RID=6214
+++ export ECF_PASS=CJSMFeKu
+++ ECF_PASS=CJSMFeKu
+++ export ECF_TRYNO=2
+++ ECF_TRYNO=2
+++ export ECF_RID=19975
+++ ECF_RID=19975
 ++ export PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
 ++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
-++ ecflow_client --init=6214
+++ ecflow_client --init=19975
 ++ trap ERROR 0
 ++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
-++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/store_DALES_output.py 20220723 1
-Copying : /nfs/home/users/theeuwes/work/DALES_runs/20220723/profiles.001.nc
-Copying : /nfs/home/users/theeuwes/work/DALES_runs/20220723/tmser.001.nc
-Copying : /nfs/home/users/theeuwes/work/DALES_runs/20220723/namoptions.001
+++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/store_DALES_output.py 20220613 1
+Copying : /nfs/home/users/theeuwes/work/DALES_runs/20220613/profiles.001.nc
+Traceback (most recent call last):
+  File "/nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/store_DALES_output.py", line 32, in <module>
+    shutil.copy(i,j)
+  File "/usr/lib64/python3.6/shutil.py", line 245, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/usr/lib64/python3.6/shutil.py", line 120, in copyfile
+    with open(src, 'rb') as fsrc:
+FileNotFoundError: [Errno 2] No such file or directory: '/nfs/home/users/theeuwes/work/DALES_runs/20220613/profiles.001.nc'
+++ ERROR
+++ set +e
 ++ wait
-++ ecflow_client --complete
+++ ecflow_client --abort=trap
 ++ trap 0
 ++ exit 0

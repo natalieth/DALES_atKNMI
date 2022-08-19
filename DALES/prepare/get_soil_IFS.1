@@ -5,23 +5,23 @@
 ++ ECF_HOST=login4.bullx
 ++ export ECF_NAME=/DALES/prepare/get_soil_IFS
 ++ ECF_NAME=/DALES/prepare/get_soil_IFS
-++ export ECF_PASS=8sSsSQgB
-++ ECF_PASS=8sSsSQgB
+++ export ECF_PASS=5R/0N3Wu
+++ ECF_PASS=5R/0N3Wu
 ++ export ECF_TRYNO=1
 ++ ECF_TRYNO=1
-++ export ECF_RID=7807
-++ ECF_RID=7807
+++ export ECF_RID=6231
+++ ECF_RID=6231
 ++ export PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
 ++ PATH=/usr/local/apps/ecflow/4.7.0/bin:/lustre3/repository/Packages/netcdf/netcdf-fortran-4.4.4/bin:/lustre3/repository/Packages/netcdf/netcdf-c-4.6.1/bin:.:/nfs/home/users/theeuwes/bin:/lustre3/repository/Packages/bin:/nfs/home/users/theeuwes/bin:/nfs/home/users/theeuwes/cmake-3.18.4/bin:/opt/intel/compilers_and_libraries_2017.2.174/linux/bin/intel64:/opt/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/opt/intel/debugger_2017/gdb/intel64_mic/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/home/users/theeuwes/.local/bin:/nfs/home/users/theeuwes/bin
-++ ecflow_client --init=7807
+++ ecflow_client --init=6231
 ++ trap ERROR 0
 ++ trap '{ echo "Killed by a signal"; ERROR ; }' 1 2 3 4 5 6 7 8 10 12 13 15
-++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/requestmars.py 20210709
+++ /nfs/home/users/theeuwes/work/DALES_runs/ecf/scr/requestmars.py 20220724
 grib_to_netcdf: Version 1.26.0
-grib_to_netcdf: Processing input file '/nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20210709.grib'.
+grib_to_netcdf: Processing input file '/nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20220724.grib'.
 grib_to_netcdf: Found 9 GRIB fields in 1 file.
 grib_to_netcdf: Ignoring key(s): method, type, stream, refdate, hdate
-grib_to_netcdf: Creating netCDF file '/nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20210709.nc'
+grib_to_netcdf: Creating netCDF file '/nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20220724.nc'
 grib_to_netcdf: NetCDF library version: 4.6.1 of May 28 2018 10:48:30 $
 grib_to_netcdf: Creating large (64 bit) file format.
 grib_to_netcdf: Defining variable 'swvl1'.
@@ -34,34 +34,39 @@ grib_to_netcdf: Defining variable 'stl3'.
 grib_to_netcdf: Defining variable 'stl4'.
 grib_to_netcdf: Defining variable 'slt'.
 grib_to_netcdf: Done.
-2021-07-17 18:58:54 ECMWF API python library 1.6.1
-2021-07-17 18:58:54 ECMWF API at https://api.ecmwf.int/v1
-2021-07-17 18:58:54 Welcome Natalie Theeuwes
-2021-07-17 18:58:54 In case of problems, please check https://confluence.ecmwf.int/display/WEBAPI/Web+API+FAQ or contact servicedesk@ecmwf.int
-2021-07-17 18:58:54 Request submitted
-2021-07-17 18:58:54 Request id: 60f3286e24cb063776a4f9a4
-2021-07-17 18:58:54 Request is submitted
-2021-07-17 18:58:55 Request is active
-Calling 'nice mars /tmp/20210717-1850/eb/tmp-_marsphKmWs.req'
+2022-08-14 07:49:02 ECMWF API python library 1.6.1
+2022-08-14 07:49:02 ECMWF API at https://api.ecmwf.int/v1
+2022-08-14 07:49:02 Welcome Natalie Theeuwes
+2022-08-14 07:49:03 In case of problems, please check https://confluence.ecmwf.int/display/WEBAPI/Web+API+FAQ or contact servicedesk@ecmwf.int
+2022-08-14 07:49:03 Request submitted
+2022-08-14 07:49:03 Request id: 62f8a8ef535ab2a1f3fa6c6a
+2022-08-14 07:49:03 Request is submitted
+2022-08-14 07:49:04 Request is active
+Calling 'nice mars /tmp/20220814-0740/64/tmp-_marseLJF_P.req'
 mars - WARN -
-mars - WARN - From 29 January 2019 10AM (UTC) MARS uses the interpolation
-mars - WARN - provided by the MIR library. For more details, see
-mars - WARN - https://confluence.ecmwf.int/display/UDOC/MARS+interpolation+with+MIR
+mars - WARN - Due to the migration of our meteorological archive, there will be no or
+mars - WARN - degraded access to the archive at times between June 2022 and October 2022.
+mars - WARN - Please visit our dedicated confluence space for more information.
+mars - WARN - https://confluence.ecmwf.int/x/qv9CDQ
 mars - WARN -
 MIR environment variables:
 MIR_CACHE_PATH=/data/ec_coeff
-mars - INFO   - 20210717.185856 - Welcome to MARS
-mars - INFO   - 20210717.185856 - MARS Client bundle version: 6.28.6.1
-mars - INFO   - 20210717.185856 - MARS Client package version: 6.28.6
-mars - INFO   - 20210717.185856 - MARS Client build stamp: 20200717102127
-mars - INFO   - 20210717.185856 - MIR version: 1.4.7
-mars - INFO   - 20210717.185856 - Using ecCodes version 2.18.0
-mars - INFO   - 20210717.185856 - Using odb_api version: 0.15.11 (file format version: 0.5)
-mars - INFO   - 20210717.185856 - Using FDB5 version: 5.6.1
-mars - INFO   - 20210717.185856 - Maximum retrieval size is 75.00 G
-retrieve,stream=oper,area=52.971/3.927/50.971/5.927,levtype=sfc,param=39.128/40.128/41.128/42.128/139.128/170.128/183.128/236.128/43.128,padding=0,grid=0.3/0.3,expver=1,time=00:00:00,date=2021-07-09,type=an,class=odmars - INFO   - 20210717.185856 - Automatic split by date is on
+Using MARS binary: /usr/local/apps/mars/versions/20220411095548/bin/mars.bin
+mars - INFO   - 20220814.074904 - Welcome to MARS
+mars - INFO   - 20220814.074904 - MARS Client build stamp: 20220411095548
+mars - INFO   - 20220814.074904 - MARS Client bundle version: 6.33.9.0
+mars - INFO   - 20220814.074904 - package mars-client version: 6.33.9
+mars - INFO   - 20220814.074904 - package mir version: 1.12.1
+mars - INFO   - 20220814.074904 - package odc version: 1.4.4
+mars - INFO   - 20220814.074904 - package fdb version: 5.10.7
+mars - INFO   - 20220814.074904 - package metkit version: 1.9.1
+mars - INFO   - 20220814.074904 - package eckit version: 1.19.0
+mars - INFO   - 20220814.074904 - package eccodes version: 2.25.1
+mars - INFO   - 20220814.074904 - Maximum retrieval size is 75.00 G
+retrieve,stream=oper,area=52.971/3.927/50.971/5.927,levtype=sfc,param=39.128/40.128/41.128/42.128/139.128/170.128/183.128/236.128/43.128,padding=0,grid=0.3/0.3,expver=1,time=00:00:00,date=2022-07-24,type=an,class=odmars - INFO   - 20220814.074904 - Automatic split by date is on
 
-mars - INFO   - 20210717.185856 - Processing request 1
+mars - INFO   - 20220814.074904 - Processing request 1
+sh: /usr/bin/mailx: No such file or directory
 
 RETRIEVE,
     CLASS      = OD,
@@ -78,41 +83,49 @@ RETRIEVE,
     AREA       = 52.971/3.927/50.971/5.927,
     GRID       = 0.3/0.3,
     PADDING    = 0,
-    DATE       = 20210709
+    DATE       = 20220724
 
-mars - INFO   - 20210717.185856 - Web API request id: 60f3286e24cb063776a4f9a4
-mars - INFO   - 20210717.185856 - Requesting 9 fields
-mars - INFO   - 20210717.185856 - dhsbase selecting random server fdb-server-prod3:9000
-mars - INFO   - 20210717.185856 - Calling mars on 'fdb-server-prod3', local port is 52791
-mars - INFO   - 20210717.185856 - Server task is 869 [FDB5 prod]
-mars - INFO   - 20210717.185856 - Retrieving from FDB [FDB5 prod]
-mars - INFO   - 20210717.185856 - Looking up FDB indexes: 0.002671 second elapsed, 0 second cpu [FDB5 prod]
-mars - INFO   - 20210717.185856 - Calling mars on 'fdb-server-bc', local port is 36762
-mars - INFO   - 20210717.185856 - Server task is 938 [FDB BC]
-mars - INFO   - 20210717.185856 - Retrieving from FDB [FDB BC]
-mars - INFO   - 20210717.185856 - Retrieving 0 field [FDB BC]
-mars - INFO   - 20210717.185856 - Looking up FDB indexes: 0.004053 second elapsed, 0 second cpu [FDB BC]
-8593 FDB; INFO;   DB$_    Fields DataBase 4.10.0
+mars - INFO   - 20220814.074904 - Web API request id: 62f8a8ef535ab2a1f3fa6c6a
+mars - INFO   - 20220814.074904 - Requesting 9 fields
+mars - WARN   - 20220814.074904 - dhsbase.random_hosts is obsolete, give a list of hosts in dhsbase.host instead
+mars - INFO   - 20220814.074904 - dhsbase selecting random server fdb-server-prod3:9000
+mars - INFO   - 20220814.074904 - Setting SO_SNDBUF to 33554432 (32.00 M)
+mars - INFO   - 20220814.074904 - Current value is 8192 (8.00 K)
+mars - WARN   - 20220814.074904 - SO_SNDBUF limited by kernel to 212992 (208.00 K)
+mars - INFO   - 20220814.074904 - Setting SO_RCVBUF to 33554432 (32.00 M)
+mars - INFO   - 20220814.074904 - Current value is 43690 (42.67 K)
+mars - WARN   - 20220814.074904 - SO_RCVBUF limited by kernel to 212992 (208.00 K)
+mars - INFO   - 20220814.074904 - Calling mars on 'fdb-server-prod3', local port is 60597
+mars - INFO   - 20220814.074904 - Server task is 182 [FDB5 prod]
+mars - INFO   - 20220814.074904 - Retrieving from FDB [FDB5 prod]
+mars - INFO   - 20220814.074904 - Looking up FDB indexes: 0.008992 second elapsed, 0.01 second cpu [FDB5 prod]
+mars - INFO   - 20220814.074904 - Calling mars on 'fdb-server-bc', local port is 41847
+mars - INFO   - 20220814.074904 - Server task is 526 [FDB BC]
+mars - INFO   - 20220814.074904 - Retrieving from FDB [FDB BC]
+mars - INFO   - 20220814.074904 - Retrieving 0 field [FDB BC]
+mars - INFO   - 20220814.074904 - Looking up FDB indexes: 0.000738 second elapsed, 0 second cpu [FDB BC]
+28872 FDB; INFO;   DB$_    Fields DataBase
 
-mars - INFO   - 20210717.185856 - Calling mars on 'marsod', local port is 50569
-mars - INFO   - 20210717.185856 - Server task is 59 [marsod]
-mars - INFO   - 20210717.185856 - Request cost: 9 fields, 119.63 Mbytes online, nodes: mvr01 [marsod]
-mars - INFO   - 20210717.185856 - The efficiency of your requests in the last 12 hours is 100% [marsod]
-mars - INFO   - 20210717.185856 - Transfering 125440972 bytes
-mars - INFO   - 20210717.185906 - 9 fields retrieved from 'marsod'
-mars - INFO   - 20210717.185906 - 9 fields have been interpolated
-mars - INFO   - 20210717.185906 - Request time:  wall: 11 sec  cpu: 1 sec
-mars - INFO   - 20210717.185906 -   Visiting marsod: wall: 10 sec
-mars - INFO   - 20210717.185906 -   Read from network: 119.63 Mbyte(s) in 10 sec  [12.39 Mbyte/sec]
-mars - INFO   - 20210717.185906 -   Writing to target file: 1.86 Kbyte(s) in < 1 sec [42.03 Kbyte/sec]
-mars - INFO   - 20210717.185906 - Memory used: 105.66 Mbyte(s)
-mars - INFO   - 20210717.185906 - No errors reported
-Process '['nice', 'mars', '/tmp/20210717-1850/eb/tmp-_marsphKmWs.req']' finished
-2021-07-17 18:59:11 Request is complete
-2021-07-17 18:59:11 Transfering 1.85742 Kbytes into /nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20210709.grib
-2021-07-17 18:59:11 From https://stream.ecmwf.int/data/webmars-private-svc-green-011/data/scratch/20210717-1850/f8/_mars-webmars-private-svc-green-011-6fe5cac1a363ec1525f54343b6cc9fd8-7Ol9Ur.grib
-2021-07-17 18:59:11 Transfer rate 23.0825 Kbytes/s
-2021-07-17 18:59:11 Done.
+mars - INFO   - 20220814.074904 - Calling mars on 'marsod', local port is 47997
+mars - INFO   - 20220814.074904 - Server task is 851 [marsod]
+mars - INFO   - 20220814.074904 - Request cost: 9 fields, 18.8868 Mbytes online, 100.743 Mbytes on 1 tape, nodes: hpss mvr08, libraries: hpss [marsod]
+mars - INFO   - 20220814.074904 - The efficiency of your requests in the last 12 hours is 50% [marsod]
+mars - INFO   - 20220814.075254 - Transfering 125440972 bytes
+mars - INFO   - 20220814.075255 - 9 fields retrieved from 'marsod'
+mars - INFO   - 20220814.075255 - 9 fields have been interpolated
+mars - INFO   - 20220814.075255 - Request time:  wall: 3 min 51 sec
+mars - INFO   - 20220814.075255 -   Processing in marsod: wall: 3 min 50 sec
+mars - INFO   - 20220814.075255 -   Visiting marsod: wall: 3 min 51 sec
+mars - INFO   - 20220814.075255 -   Read from network: 119.63 Mbyte(s) in < 1 sec [457.06 Mbyte/sec]
+mars - INFO   - 20220814.075255 -   Writing to target file: 1.86 Kbyte(s) in < 1 sec [85.30 Kbyte/sec]
+mars - INFO   - 20220814.075255 - Memory used: 106.76 Mbyte(s)
+mars - INFO   - 20220814.075255 - No errors reported
+Process '['nice', 'mars', '/tmp/20220814-0740/64/tmp-_marseLJF_P.req']' finished
+2022-08-14 07:53:18 Request is complete
+2022-08-14 07:53:18 Transfering 1.85742 Kbytes into /nfs/home/users/theeuwes/work/LES_forcings/IFS_SOIL/soil_20220724.grib
+2022-08-14 07:53:18 From https://stream.ecmwf.int/data/webmars-private-svc-blue-010/data/scratch/20220814-0740/09/_mars-webmars-private-svc-blue-010-6fe5cac1a363ec1525f54343b6cc9fd8-evOsC2.grib
+2022-08-14 07:53:18 Transfer rate 14.9562 Kbytes/s
+2022-08-14 07:53:19 Done.
 ++ wait
 ++ ecflow_client --complete
 ++ trap 0
